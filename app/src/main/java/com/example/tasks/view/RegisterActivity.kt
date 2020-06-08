@@ -41,7 +41,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private fun observe() {
         mViewModel.create.observe(this, Observer {
             if (it.success()) {
-                startActivity(Intent(this, MainActivity::class.java))
+                Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show()
+                finish()
             } else {
                 Toast.makeText(this, it.failure(), Toast.LENGTH_SHORT).show()
             }
